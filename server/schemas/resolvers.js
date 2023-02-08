@@ -49,6 +49,13 @@ const resolvers = {
                 }
             );
         },
+        deleteBook: async (_parent, { userId, book }) => {
+            return User.findOneAndUpdate(
+                { _id: userId },
+                { $pull: { savedBooks: book } },
+                { new: true }
+            );
+        }
     }
 };
 
