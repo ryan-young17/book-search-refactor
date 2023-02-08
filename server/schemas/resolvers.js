@@ -5,7 +5,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getSingleUser: async (_parent, args, context) => {
+        me: async (_parent, args, context) => {
             const { user } = context;
             const foundUser = await User.findOne({
                 $or: [
