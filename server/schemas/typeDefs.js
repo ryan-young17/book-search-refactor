@@ -23,7 +23,10 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        # Add in controller methods here (createUser, login, saveBook, deleteBook)
+        createUser(username: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
+        saveBook(userId: ID!, book: String!): User
+        deleteBook(userId: ID!, book: String!): User
     }
 `
 
